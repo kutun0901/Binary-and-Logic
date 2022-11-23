@@ -7,13 +7,22 @@ const addZeros = require('../utils/addZeros');
 /******************************************************************************/
 
 const asciiTo8bit = str => {
-  // Your code here
+  let newStr = '';
+
+  for (let i = 0; i < str.length; i++) {
+    let decimal = str.charCodeAt(i);
+    let binary = decimal.toString(2);
+    newStr += addZeros(binary, 8);
+  }
+
+  return newStr;
 };
 
 /******************************************************************************/
 
 console.log(asciiTo8bit('123'));
 // 001100010011001000110011
+// 00110001 00110010 00110011
 
 console.log(asciiTo8bit('ABC'));
 // 010000010100001001000011
